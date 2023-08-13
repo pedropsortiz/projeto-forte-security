@@ -6,8 +6,7 @@ import { Link } from "react-router-dom"
 import CartItem from "../components/CartItem"
 import { addToCart, removeFromCart } from "../redux/actions/cartActions"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"  
-import { faTrash } from "@fortawesome/free-solid-svg-icons"  
+
 
 const CartScreen = () => {
   const dispatch = useDispatch()
@@ -39,7 +38,7 @@ const CartScreen = () => {
     <>
       <div className="cartScreen">
         <div className="cartScreenLeft">
-          <h2>Seu carrinho de compras</h2>
+          <h2>Seu carrinho de compras: </h2>
 
           {cartItems.length === 0 ? (
             <div>

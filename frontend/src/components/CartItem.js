@@ -1,6 +1,9 @@
 import "../components/CartItem.css";
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"  
+import { faTrash } from "@fortawesome/free-solid-svg-icons"  
+
 const cartItem = ({ item, qtyChangeHandler, removeHandler }) => {
   return (
     <div className="cartItem">
@@ -26,7 +29,7 @@ const cartItem = ({ item, qtyChangeHandler, removeHandler }) => {
         className="cartItemDeleteBtn"
         onClick={() => removeHandler(item.product)}
       >
-        <i className="fas fa-trash"></i>
+      <span><FontAwesomeIcon icon={faTrash} className="carrinhoIcon" /></span>
       </button>
     </div>
   );
