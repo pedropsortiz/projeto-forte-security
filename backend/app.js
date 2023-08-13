@@ -1,14 +1,21 @@
-require('dotenv').config()
+require("dotenv").config()
 const express = require("express")
-const app = express();
-const productRoutes = require('./routes/productRoutes')
+const productRoutes = require("./routes/productRoutes")
 const connectDB = require("./config/db")
+const cors = require('cors');
 
-connectDB();
+connectDB()
+
+const app = express()
 
 app.use(express.json())
-app.use('./products', productRoutes)
+app.use(cors());
 
-const PORT = process.env.PORT || 8080;
+app.get("/", (req, res) => {
+  res.json({ message: "API iniciada..." })
+});
 
+app.use("/api/products", productRoutes)
+
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log("Servidor ativo na porta " + PORT))
